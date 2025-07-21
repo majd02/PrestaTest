@@ -23,6 +23,35 @@
  * International Registered Trademark & Property of PrestaShop SA
  *} 
  
+ <div >
+    {if $listing.pagination.items_shown_from == 1}
+        <div class="block-category card card-block">
+            <h1 class="h1">{$category.name}</h1>
+            <div class="block-category-inner">
+                
+
+                {if $subcategories|count > 0}
+                  <div class="subcategory-slider-wrapper">
+                    <div class="subcategory-slider">
+                      {foreach from=$subcategories item=subcat}
+                        <div class="subcategory-slide text-center">
+                           <a href="{$link->getCategoryLink($subcat.id_category, $subcat.link_rewrite)}">
+                            <div class="subcategory-circle" style="background-image: url({$subcat.id_image});" src="{$subcat.id_image}"></div>
+                            <div class="subcategory-name">{$subcat.name}</div>
+                            <div class="subcategory-count">({$subcat.nb_products} produits)</div>
+
+                           </a>
+                        </div>
+                      {/foreach}
+                    </div>
+                  </div>
+                {/if}
+                {* End slider *}
+            </div>
+        </div>
+    {/if}
+</div>
+
 <div id="js-product-list-header">
     {if $listing.pagination.items_shown_from == 1}
         <div class="block-category card card-block">
