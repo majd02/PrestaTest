@@ -39,6 +39,12 @@
             <span class="value">{$value}</span>
         </div>
     {/foreach}
+       <div class="product-line-info">
+  <small class="subcategory-name">
+    {l s='Category:' d='Shop.Theme.Catalog'} {$product.subcategory_name}
+  </small>
+</div>
+  
     <br/>
   </div>
 {/block}

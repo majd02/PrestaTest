@@ -93,7 +93,7 @@ class CartPresenter implements PresenterInterface
      * @return \PrestaShop\PrestaShop\Adapter\Presenter\Product\ProductLazyArray|\PrestaShop\PrestaShop\Adapter\Presenter\Product\ProductListingLazyArray
      */
      private function presentProduct(array $rawProduct)
-    {
+{
     $settings = new ProductPresentationSettings();
 
     $settings->catalog_mode = Configuration::isCatalogMode();
@@ -164,7 +164,11 @@ class CartPresenter implements PresenterInterface
 
     $rawProduct['quantity_wanted'] = $rawProduct['cart_quantity'];
 
-    
+    // Add tje subcategory name to the product
+    $categories = \Product::getProductCategoriesFull($rawProduct['id_product']);
+    $subcategory = end($categories);
+    $rawProduct['subcategory_name'] = isset($subcategory['name']) ? $subcategory['name'] : '';
+
     $presenter = new ProductListingPresenter(
         $this->imageRetriever,
         $this->link,
@@ -178,7 +182,7 @@ class CartPresenter implements PresenterInterface
         $rawProduct,
         Context::getContext()->language
     );
-    }
+}
 
     /**
      * @param array $products
