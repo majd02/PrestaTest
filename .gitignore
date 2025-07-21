@@ -1,0 +1,30 @@
+# PrestaShop Cache & Logs
+/var/cache/
+/var/logs/
+/var/backups/
+/app/logs/
+/config/xml/*.xml
+
+# PrestaShop Generated Content
+/img/tmp/
+/img/tmp/*
+/upload/
+/download/
+/export/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Operating system and IDE files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.swn
+
+# Composer & node_modules
+/vendor/
+/node_modules/
+
+/.env
